@@ -1,0 +1,16 @@
+cer_id: CER-000001
+title: "Idle EC2 instances running outside business hours"
+status: draft
+
+cloud:
+  csp: aws
+  focus_category: compute
+  service: ec2
+
+deepwaste:
+  layer: surface
+
+impact:
+  cost_driver: instance_hours
+  risk: low
+  effort: low
