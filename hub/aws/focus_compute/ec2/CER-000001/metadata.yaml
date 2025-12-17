@@ -1,6 +1,6 @@
 cer_id: CER-000001
 title: "Idle EC2 instances running outside business hours"
-status: draft
+status: draft  # draft | published | deprecated
 
 cloud:
   csp: aws
@@ -8,9 +8,36 @@ cloud:
   service: ec2
 
 deepwaste:
-  layer: surface
+  layer: surface  # surface | configuration | application | lifecycle | architecture
+
+tags:
+  - idle
+  - scheduling
+  - rightsizing
 
 impact:
-  cost_driver: instance_hours
-  risk: low
-  effort: low
+  cost_driver: "instance_hours"
+  typical_savings_range: "10-40%" # keep rough at first
+  risk: low       # low | medium | high
+  effort: low     # low | medium | high
+
+owners:
+  maintainer: "TBD"
+  contributor: "TBD"
+
+links:
+  hub_page: ""        # webflow URL later
+  discussion_issue: "" # github issue URL later
+
+detectors:
+  - name: "detect_idle_ec2_python"
+    path: "detection/python/detect.py"
+    language: "python"
+  - name: "detect_idle_ec2_bash"
+    path: "detection/bash/detect.sh"
+    language: "bash"
+
+remediations:
+  - name: "stop_instances_runbook"
+    path: "remediation/runbook/README.md"
+    method: "runbook"
